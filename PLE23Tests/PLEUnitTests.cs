@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace PLE23UnitTests
 {
     [TestClass()]
-    public class CanvasOTests
+    public class PLEUnitTests
     {
   
         [TestMethod()]
@@ -87,6 +87,17 @@ namespace PLE23UnitTests
             p.ParseCommand("pen red");
             Assert.AreEqual(System.Drawing.Color.Red, forma.Canvas.Pen.Color);
             
+        }
+
+        [TestMethod()]
+        public void commandLineTest()
+        {
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            forma.commandLine.Text = "fill on";
+            p.ParseCommand(forma.commandLine.Text);
+            Assert.AreEqual(true, forma.Canvas.fillo);
+
         }
     }
 }

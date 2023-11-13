@@ -33,11 +33,6 @@ namespace PLE23
 
         }
        
-
-
-
-
-
         public void commandLine_KeyDown(object sender, KeyEventArgs e)
         {
             Parser p = new Parser(this);
