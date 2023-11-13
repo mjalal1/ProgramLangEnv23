@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace PLE23
 {
     
-        class CanvasO
+      public  class CanvasO
         {
-            Graphics g;
+         public   Graphics g;
             Pen Pen;
-            int posx;
-            int posy;
-        Brush brush = Brushes.Black;
-        bool fillo = false;
+          public  int posx;
+       public     int posy;
+       public Brush brush = Brushes.Black;
+      public  bool fillo = false;
         public CanvasO(Graphics g)
             {
                 this.g = g;

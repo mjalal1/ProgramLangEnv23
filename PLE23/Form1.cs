@@ -8,7 +8,7 @@ namespace PLE23
         const int bmpx = 640;
         const int bmpy = 480;
         Bitmap OutBmp = new Bitmap(bmpx, bmpy);
-        CanvasO Canvas;
+      public  CanvasO Canvas;
         public Form1()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace PLE23
         }
 
 
-        public void Load(String path)
+        public void LoadFile(String path)
         {
             string FileText = File.ReadAllText(path + ".txt");
             programWindow.Text = FileText;
@@ -162,7 +162,7 @@ namespace PLE23
                 {
                     if (com.Length > 1)
                     {
-                        Load(com[1]);
+                        LoadFile(com[1]);
                     }
                     else
                     {
