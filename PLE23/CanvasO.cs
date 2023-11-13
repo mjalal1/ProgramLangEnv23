@@ -15,6 +15,7 @@ namespace PLE23
        public     int posy;
        public Brush brush = Brushes.Black;
       public  bool fillo = false;
+        public int drawCount = 0;
         public CanvasO(Graphics g)
             {
                 this.g = g;
@@ -38,6 +39,7 @@ namespace PLE23
             g.DrawLine(Pen, posx, posy, x, y);
             posx = x;
             posy = y;
+            drawCount++;
 
         }
         public void fill(string o)
@@ -57,6 +59,7 @@ namespace PLE23
         {
 
             g.Clear(Color.Transparent);
+            drawCount = 0;
 
         }
         public void DrawRect(int length, int height)
@@ -64,6 +67,8 @@ namespace PLE23
             Rectangle rect = new Rectangle(posx, posy, length, height);
             g.DrawRectangle(Pen, rect);
             if (fillo) { g.FillRectangle(brush, rect); }
+            drawCount++;
+            
 
 
         }
@@ -73,6 +78,7 @@ namespace PLE23
             Rectangle recta = new Rectangle(posx - radius, posy - radius, radius * 2, radius * 2);
             g.DrawEllipse(Pen, recta);
             if (fillo) { g.FillEllipse(brush, recta); }
+            drawCount++;
         }
 
         public void DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
@@ -90,6 +96,7 @@ namespace PLE23
 
             g.DrawPolygon(Pen, pnt);
             if (fillo) { g.FillPolygon(brush, pnt); }
+            drawCount++;
         }
 
         public void pen(string colour)

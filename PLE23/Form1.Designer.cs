@@ -32,6 +32,8 @@
             commandLine = new TextBox();
             outputWindow = new PictureBox();
             exitBtn = new Button();
+            labelDrawCountVal = new Label();
+            labelDrawingCount = new Label();
             ((System.ComponentModel.ISupportInitialize)outputWindow).BeginInit();
             SuspendLayout();
             // 
@@ -76,12 +78,36 @@
             exitBtn.UseVisualStyleBackColor = true;
             exitBtn.Click += exitBtn_Click;
             // 
+            // labelDrawCountVal
+            // 
+            labelDrawCountVal.AutoSize = true;
+            labelDrawCountVal.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelDrawCountVal.Location = new Point(335, 305);
+            labelDrawCountVal.Name = "labelDrawCountVal";
+            labelDrawCountVal.Size = new Size(15, 17);
+            labelDrawCountVal.TabIndex = 4;
+            labelDrawCountVal.Text = "0";
+            // 
+            // labelDrawingCount
+            // 
+            labelDrawingCount.AutoSize = true;
+            labelDrawingCount.BackColor = Color.Transparent;
+            labelDrawingCount.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelDrawingCount.ForeColor = Color.Black;
+            labelDrawingCount.Location = new Point(173, 305);
+            labelDrawingCount.Name = "labelDrawingCount";
+            labelDrawingCount.Size = new Size(156, 17);
+            labelDrawingCount.TabIndex = 5;
+            labelDrawingCount.Text = "# of drawings on Canvas:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DarkGray;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelDrawingCount);
+            Controls.Add(labelDrawCountVal);
             Controls.Add(exitBtn);
             Controls.Add(outputWindow);
             Controls.Add(commandLine);
@@ -100,5 +126,7 @@
         public TextBox commandLine;
         public PictureBox outputWindow;
         private Button exitBtn;
+        public Label labelDrawCountVal;
+        private Label labelDrawingCount;
     }
 }

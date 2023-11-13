@@ -8,7 +8,7 @@ namespace PLE23
         const int bmpx = 640;
         const int bmpy = 480;
         Bitmap OutBmp = new Bitmap(bmpx, bmpy);
-      public  CanvasO Canvas;
+        public CanvasO Canvas;
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace PLE23
             programWindow.Text = FileText;
 
         }
-       
+
         public void commandLine_KeyDown(object sender, KeyEventArgs e)
         {
             Parser p = new Parser(this);
@@ -47,6 +47,7 @@ namespace PLE23
                     MessageBox.Show("" + ex.Message);
                 }
                 Refresh();
+                labelDrawCountVal.Text = Canvas.drawCount.ToString();
             }
 
         }
