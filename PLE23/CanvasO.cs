@@ -13,8 +13,9 @@ namespace PLE23
             Pen Pen;
             int posx;
             int posy;
-
-            public CanvasO(Graphics g)
+        Brush brush = Brushes.Black;
+        bool fillo = false;
+        public CanvasO(Graphics g)
             {
                 this.g = g;
                 posx = posy = 0; ;
@@ -27,6 +28,10 @@ namespace PLE23
             posx = x;
             posy = y;
 
+        }
+        public void reset()
+        {
+            posx = 0; posy=0;
         }
         public void DrawTo(int x, int y)
         {
