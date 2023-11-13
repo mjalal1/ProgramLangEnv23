@@ -35,6 +35,13 @@ namespace PLE23
             posy = y;
 
         }
+
+        public void clear()
+        {
+
+            g.Clear(Color.Transparent);
+
+        }
         public void DrawRect(int length, int height)
         {
             g.DrawRectangle(Pen, posx, posy, posx + length, posy + height);

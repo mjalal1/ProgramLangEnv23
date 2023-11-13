@@ -75,13 +75,26 @@ namespace PLE23
 
             else if (command.Equals("rect"))
             {
-                Canvas.DrawRect(Param[0], Param[1]);
-                Console.WriteLine("Square drew");
+                if (Param.Count() == 2)
+                {
+                    Canvas.DrawRect(Param[0], Param[1]);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Parameters : Rect takes 2 parameters : length and height");
+                }
+
             }
             else if (command.Equals("circle"))
             {
-                Canvas.DrawCircle(Param[0]);
-
+                if (Param.Count() == 1)
+                {
+                    Canvas.DrawCircle(Param[0]);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Parameters : Circle takes 1 parameter: radius");
+                }
             }
             else if (command.Equals("triangle"))
             {
@@ -93,8 +106,12 @@ namespace PLE23
                 }
                 else
                 {
-                    MessageBox.Show("Invalid Parameters : drawTriangle takes 6 parameters : x1,y1,x2,y2,x3,y3");
+                    MessageBox.Show("Invalid Parameters : Triangle takes 6 parameters : x1,y1, x2,y2, x3,y3");
                 }
+            }
+            else if (command.Equals("clear"))
+            {
+                Canvas.clear();
             }
 
         }
