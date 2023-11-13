@@ -18,7 +18,10 @@ namespace PLE23
             Graphics g = e.Graphics;
             g.DrawImageUnscaled(OutBmp, 0, 0);
         }
-
+        public void Save(String path)
+        {
+            File.WriteAllText(path + ".txt", programWindow.Text);
+        }
         public void ParseCommand(String line)
         {
 
@@ -133,6 +136,17 @@ namespace PLE23
                 else if (command.Equals("reset"))
                 {
                     Canvas.reset();
+                }
+                else if (command.Equals("save"))
+                {
+                    if (com.Length > 1)
+                    {
+                        Save(com[1]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Parameters : Save takes 1 parameter: filename");
+                    }
                 }
                 else if (command.Equals("fill"))
                 {
