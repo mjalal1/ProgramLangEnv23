@@ -65,6 +65,19 @@ namespace PLE23
                 Canvas.DrawCircle(Param[0]);
 
             }
+            else if (command.Equals("triangle"))
+            {
+                if (Param.Count() == 6)
+                {
+                    Canvas.DrawTriangle(Param[0], Param[1], Param[2], Param[3], Param[4], Param[5]);
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Parameters : drawTriangle takes 6 parameters : x1,y1,x2,y2,x3,y3");
+                }
+            }
 
         }
 

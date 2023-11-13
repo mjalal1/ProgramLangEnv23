@@ -40,6 +40,22 @@ namespace PLE23
         {
             g.DrawEllipse(Pen, posx, posy, (posx + (radius * 2)), (posy + (radius * 2)));
         }
+
+        public void DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
+        {
+            Point[] pnt = new Point[3];
+
+            pnt[0].X = x1;
+            pnt[0].Y = y1;
+
+            pnt[1].X = x2;
+            pnt[1].Y = y2;
+
+            pnt[2].X = x3;
+            pnt[2].Y = y3;
+
+            g.DrawPolygon(Pen, pnt);
+        }
     }
     
 }
