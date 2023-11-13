@@ -74,14 +74,14 @@ namespace PLE23
 
 
                         Canvas.DrawTo(Param[0], Param[1]);
-                        MessageBox.Show("Params are " + Param[0] + Param[1]);
-                        Console.WriteLine("Line drew");
+                      //  throw new ApplicationException("Params are " + Param[0] + Param[1]);
+                      //  Console.WriteLine("Line drew");
 
 
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : drawTo takes 2 parameters : x and y");
+                        throw new ApplicationException("Invalid Parameters : drawTo takes 2 parameters : x and y");
                     }
                 }
 
@@ -99,7 +99,7 @@ namespace PLE23
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : moveTo takes 2 parameters : x and y");
+                        throw new ApplicationException("Invalid Parameters : moveTo takes 2 parameters : x and y");
                     }
                 }
 
@@ -111,7 +111,7 @@ namespace PLE23
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : Rect takes 2 parameters : length and height");
+                        throw new ApplicationException("Invalid Parameters : Rect takes 2 parameters : length and height");
                     }
 
                 }
@@ -123,7 +123,7 @@ namespace PLE23
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : Circle takes 1 parameter: radius");
+                        throw new ApplicationException("Invalid Parameters : Circle takes 1 parameter: radius");
                     }
                 }
                 else if (command.Equals("triangle"))
@@ -136,7 +136,7 @@ namespace PLE23
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : Triangle takes 6 parameters : x1,y1, x2,y2, x3,y3");
+                        throw new ApplicationException("Invalid Parameters : Triangle takes 6 parameters : x1,y1, x2,y2, x3,y3");
                     }
                 }
                 else if (command.Equals("clear"))
@@ -155,7 +155,7 @@ namespace PLE23
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : Save takes 1 parameter: filename");
+                        throw new ApplicationException("Invalid Parameters : Save takes 1 parameter: filename");
                     }
                 }
                 else if (command.Equals("load"))
@@ -166,7 +166,7 @@ namespace PLE23
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : Load takes 1 parameter: filename");
+                        throw new ApplicationException("Invalid Parameters : Load takes 1 parameter: filename");
                     }
                 }
                 else if (command.Equals("fill"))
@@ -179,14 +179,14 @@ namespace PLE23
                         }
                         else
                         {
-                            MessageBox.Show("Invalid Parameters : fill takes 1 parameter: on/off ");
+                            throw new ApplicationException("Invalid Parameters : fill takes 1 parameter: on/off ");
                         }
 
                     }
 
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : fill takes 1 parameter: on/off ");
+                        throw new ApplicationException("Invalid Parameters : fill takes 1 parameter: on/off ");
                     }
 
                 }
@@ -202,7 +202,7 @@ namespace PLE23
                     }
                     else
                     {
-                        MessageBox.Show("Invalid Parameters : pen takes 1 parameter: colour (red/blue/green/pink/purple/black) ");
+                        throw new ApplicationException("Invalid Parameters : pen takes 1 parameter: colour (red/blue/green/pink/purple/black) ");
                     }
                 }
                 else if (command.Equals("run"))
@@ -211,7 +211,7 @@ namespace PLE23
                 }
                 else
                 {
-                    MessageBox.Show("Command not recognised. Valid Commands: rect,triangle,circle,drawTo,moveTo,reset,clear,pen,fill");
+                    throw new ApplicationException("Command not recognised. Valid Commands: rect,triangle,circle,drawTo,moveTo,reset,clear,pen,fill");
                 }
 
 
