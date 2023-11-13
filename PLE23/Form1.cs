@@ -227,7 +227,14 @@ namespace PLE23
 
             if (e.KeyCode == Keys.Enter)
             {
-                ParseCommand(commandLine.Text);
+                try
+                {
+                    ParseCommand(commandLine.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("" + ex.Message);
+                }
                 Refresh();
             }
 
