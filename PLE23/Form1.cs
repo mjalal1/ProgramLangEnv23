@@ -140,9 +140,29 @@ namespace PLE23
                     {
                         MessageBox.Show("Invalid Parameters : fill takes 1 parameter: on/off ");
                     }
+                
                 }
+            
+            else
+            {
+                MessageBox.Show("Invalid Parameters : fill takes 1 parameter: on/off ");
             }
 
+        }
+            else if (command.Equals("pen"))
+            {
+                if (com.Length > 1)
+                {
+
+                    Canvas.pen(com[1]);
+                    Console.WriteLine(com[1]);
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Parameters : pen takes 1 parameter: colour (red/blue/green/pink/purple/black) ");
+                }
+            }
         }
 
         
