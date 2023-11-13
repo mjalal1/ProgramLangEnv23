@@ -26,7 +26,13 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void resetTest()
         {
-            
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            forma.Canvas.posx = 100;
+            forma.Canvas.posy = 200;
+            p.ParseCommand("reset");
+            Assert.AreEqual(0, forma.Canvas.posx, 0.01);
+            Assert.AreEqual(0, forma.Canvas.posy, 0.01);
         }
 
         [TestMethod()]
