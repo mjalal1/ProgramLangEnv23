@@ -8,7 +8,7 @@ namespace PLE23
 {
     public class Parser
     {
-      public  Form1 form;
+        public Form1 form;
         public Parser(Form1 form)
         {
             this.form = form;
@@ -56,8 +56,7 @@ namespace PLE23
 
 
                         form.Canvas.DrawTo(Param[0], Param[1]);
-                        //  throw new ApplicationException("Params are " + Param[0] + Param[1]);
-                        //  Console.WriteLine("Line drew");
+
 
 
                     }
@@ -67,7 +66,7 @@ namespace PLE23
                     }
                 }
 
-                if (command.Equals("moveto"))
+               else if (command.Equals("moveto"))
                 {
                     if (Param.Count() == 2)
                     {
@@ -191,6 +190,7 @@ namespace PLE23
                 {
                     ParseCommand(form.programWindow.Text);
                 }
+
                 else
                 {
                     throw new ApplicationException("Command not recognised. Valid Commands: rect,triangle,circle,drawTo,moveTo,reset,clear,pen,fill");

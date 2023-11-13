@@ -38,7 +38,11 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void DrawToTest()
         {
-            Assert.Fail();
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            p.ParseCommand("drawto 100,150");
+            Assert.AreEqual(100, forma.Canvas.posx, 0.01);
+            Assert.AreEqual(150, forma.Canvas.posy, 0.01);
         }
 
         [TestMethod()]
