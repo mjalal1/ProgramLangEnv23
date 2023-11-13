@@ -38,8 +38,11 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void fillTest()
         {
-           
-          
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            p.ParseCommand("fill on");
+            Assert.AreEqual(true, forma.Canvas.fillo);
+
         }
 
         [TestMethod()]
