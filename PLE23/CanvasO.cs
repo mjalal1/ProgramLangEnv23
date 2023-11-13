@@ -21,16 +21,17 @@ namespace PLE23
                 Pen = new Pen(Color.Black, 1);
             }
 
-        public void DrawLine(int x, int y)
+
+        public void DrawTo(int x, int y)
         {
             g.DrawLine(Pen, posx, posy, x, y);
             posx = x;
             posy = y;
 
         }
-        public void DrawSquare(int length)
+        public void DrawRect(int length, int height)
         {
-            g.DrawRectangle(Pen, posx, posy, posx + length, posy + length);
+            g.DrawRectangle(Pen, posx, posy, posx + length, posy + height);
 
 
         }

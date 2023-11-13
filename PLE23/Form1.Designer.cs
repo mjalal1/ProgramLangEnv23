@@ -31,11 +31,13 @@
             programWindow = new TextBox();
             commandLine = new TextBox();
             outputWindow = new PictureBox();
+            exitBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)outputWindow).BeginInit();
             SuspendLayout();
             // 
             // programWindow
             // 
+            programWindow.BackColor = Color.Silver;
             programWindow.Location = new Point(35, 32);
             programWindow.Multiline = true;
             programWindow.Name = "programWindow";
@@ -44,6 +46,8 @@
             // 
             // commandLine
             // 
+            commandLine.BackColor = Color.Silver;
+            commandLine.BorderStyle = BorderStyle.FixedSingle;
             commandLine.Location = new Point(35, 236);
             commandLine.Name = "commandLine";
             commandLine.Size = new Size(315, 35);
@@ -52,6 +56,8 @@
             // 
             // outputWindow
             // 
+            outputWindow.BackColor = Color.Silver;
+            outputWindow.BorderStyle = BorderStyle.Fixed3D;
             outputWindow.Location = new Point(388, 32);
             outputWindow.Name = "outputWindow";
             outputWindow.Size = new Size(400, 400);
@@ -59,14 +65,28 @@
             outputWindow.TabStop = false;
             outputWindow.Paint += outputWindow_Paint;
             // 
+            // exitBtn
+            // 
+            exitBtn.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            exitBtn.Location = new Point(18, 419);
+            exitBtn.Name = "exitBtn";
+            exitBtn.Size = new Size(78, 23);
+            exitBtn.TabIndex = 3;
+            exitBtn.Text = "Close";
+            exitBtn.UseVisualStyleBackColor = true;
+            exitBtn.Click += exitBtn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkGray;
             ClientSize = new Size(800, 450);
+            Controls.Add(exitBtn);
             Controls.Add(outputWindow);
             Controls.Add(commandLine);
             Controls.Add(programWindow);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)outputWindow).EndInit();
@@ -79,5 +99,6 @@
         private TextBox programWindow;
         private TextBox commandLine;
         private PictureBox outputWindow;
+        private Button exitBtn;
     }
 }
