@@ -40,7 +40,19 @@ namespace PLE23
             posy = y;
 
         }
+        public void fill(string o)
+        {
 
+            if (o == "on")
+            {
+                fillo = true;
+
+            }
+            else if (o == "off")
+            { fillo = false; }
+
+
+        }
         public void clear()
         {
 
@@ -49,14 +61,18 @@ namespace PLE23
         }
         public void DrawRect(int length, int height)
         {
-            g.DrawRectangle(Pen, posx, posy, posx + length, posy + height);
+            Rectangle rect = new Rectangle(posx, posy, length, height);
+            g.DrawRectangle(Pen, rect);
+            if (fillo) { g.FillRectangle(brush, rect); }
 
 
         }
 
         public void DrawCircle(int radius)
         {
-            g.DrawEllipse(Pen, posx, posy, (posx + (radius * 2)), (posy + (radius * 2)));
+            Rectangle recta = new Rectangle(posx - radius, posy - radius, radius * 2, radius * 2);
+            g.DrawEllipse(Pen, recta);
+            if (fillo) { g.FillEllipse(brush, recta); }
         }
 
         public void DrawTriangle(int x1, int y1, int x2, int y2, int x3, int y3)
@@ -73,6 +89,7 @@ namespace PLE23
             pnt[2].Y = y3;
 
             g.DrawPolygon(Pen, pnt);
+            if (fillo) { g.FillPolygon(brush, pnt); }
         }
     }
     

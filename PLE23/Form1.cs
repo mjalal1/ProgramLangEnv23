@@ -128,6 +128,20 @@ namespace PLE23
             {
                 Canvas.reset();
             }
+            else if (command.Equals("fill"))
+            {
+                if (com.Length > 1)
+                {
+                    if (com[1] == "on" || com[1] == "off")
+                    {
+                        Canvas.fill(com[1]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Parameters : fill takes 1 parameter: on/off ");
+                    }
+                }
+            }
 
         }
 
