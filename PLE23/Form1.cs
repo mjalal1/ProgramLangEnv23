@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace PLE23
 {
     public partial class Form1 : Form
@@ -21,6 +23,14 @@ namespace PLE23
         public void Save(String path)
         {
             File.WriteAllText(path + ".txt", programWindow.Text);
+        }
+
+
+        public void Load(String path)
+        {
+            string FileText = File.ReadAllText(path + ".txt");
+            programWindow.Text = FileText;
+
         }
         public void ParseCommand(String line)
         {
@@ -148,6 +158,17 @@ namespace PLE23
                         MessageBox.Show("Invalid Parameters : Save takes 1 parameter: filename");
                     }
                 }
+                else if (command.Equals("load"))
+                {
+                    if (com.Length > 1)
+                    {
+                        Load(com[1]);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Parameters : Load takes 1 parameter: filename");
+                    }
+                }
                 else if (command.Equals("fill"))
                 {
                     if (com.Length > 1)
@@ -169,6 +190,7 @@ namespace PLE23
                     }
 
                 }
+
                 else if (command.Equals("pen"))
                 {
                     if (com.Length > 1)
