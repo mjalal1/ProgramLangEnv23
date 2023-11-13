@@ -48,6 +48,7 @@
             commandLine.Name = "commandLine";
             commandLine.Size = new Size(315, 35);
             commandLine.TabIndex = 1;
+            commandLine.KeyDown += commandLine_KeyDown;
             // 
             // outputWindow
             // 
@@ -56,6 +57,7 @@
             outputWindow.Size = new Size(400, 400);
             outputWindow.TabIndex = 2;
             outputWindow.TabStop = false;
+            outputWindow.Paint += outputWindow_Paint;
             // 
             // Form1
             // 
