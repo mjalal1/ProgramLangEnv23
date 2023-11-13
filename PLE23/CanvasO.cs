@@ -20,6 +20,20 @@ namespace PLE23
                 posx = posy = 0; ;
                 Pen = new Pen(Color.Black, 1);
             }
+
+        public void DrawLine(int x, int y)
+        {
+            g.DrawLine(Pen, posx, posy, x, y);
+            posx = x;
+            posy = y;
+
         }
+        public void DrawSquare(int length)
+        {
+            g.DrawRectangle(Pen, posx, posy, posx + length, posy + length);
+
+
+        }
+    }
     
 }
