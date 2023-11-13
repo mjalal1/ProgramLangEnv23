@@ -55,6 +55,24 @@ namespace PLE23
                 }
             }
 
+            if (command.Equals("moveto"))
+            {
+                if (Param.Count() == 2)
+                {
+
+
+                    Canvas.MoveTo(Param[0], Param[1]);
+
+
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Parameters : moveTo takes 2 parameters : x and y");
+                }
+            }
+
             else if (command.Equals("rect"))
             {
                 Canvas.DrawRect(Param[0], Param[1]);
@@ -70,7 +88,7 @@ namespace PLE23
                 if (Param.Count() == 6)
                 {
                     Canvas.DrawTriangle(Param[0], Param[1], Param[2], Param[3], Param[4], Param[5]);
-
+                   
 
                 }
                 else

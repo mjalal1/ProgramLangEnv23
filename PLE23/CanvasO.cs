@@ -21,7 +21,13 @@ namespace PLE23
                 Pen = new Pen(Color.Black, 1);
             }
 
+        public void MoveTo(int x, int y)
+        {
 
+            posx = x;
+            posy = y;
+
+        }
         public void DrawTo(int x, int y)
         {
             g.DrawLine(Pen, posx, posy, x, y);
