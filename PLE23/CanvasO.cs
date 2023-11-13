@@ -10,7 +10,7 @@ namespace PLE23
       public  class CanvasO
         {
          public   Graphics g;
-            Pen Pen;
+           public Pen Pen;
           public  int posx;
        public     int posy;
        public Brush brush = Brushes.Black;

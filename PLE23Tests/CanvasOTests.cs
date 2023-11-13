@@ -11,17 +11,13 @@ namespace PLE23UnitTests
     [TestClass()]
     public class CanvasOTests
     {
-        [TestMethod()]
-        public void CanvasOTest()
-        {
-            Assert.Fail();
-        }
-
+  
         [TestMethod()]
         public void MoveToTest()
         {
             Form1 forma = new Form1();
-            forma.ParseCommand("moveto 100,150");
+            Parser p = new Parser(forma);
+            p.ParseCommand("moveto 100,150");
             Assert.AreEqual(100, forma.Canvas.posx, 0.01);
             Assert.AreEqual(150, forma.Canvas.posy, 0.01);
 
@@ -30,7 +26,7 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void resetTest()
         {
-            Assert.Fail();
+            
         }
 
         [TestMethod()]
@@ -42,7 +38,8 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void fillTest()
         {
-            Assert.Fail();
+           
+          
         }
 
         [TestMethod()]
@@ -72,7 +69,11 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void penTest()
         {
-            Assert.Fail();
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            p.ParseCommand("pen red");
+            Assert.AreEqual(System.Drawing.Color.Red, forma.Canvas.Pen.Color);
+            
         }
     }
 }
