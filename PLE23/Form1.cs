@@ -60,7 +60,12 @@ namespace PLE23
                 Canvas.DrawRect(Param[0], Param[1]);
                 Console.WriteLine("Square drew");
             }
-           
+            else if (command.Equals("circle"))
+            {
+                Canvas.DrawCircle(Param[0]);
+
+            }
+
         }
 
     

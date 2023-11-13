@@ -35,6 +35,11 @@ namespace PLE23
 
 
         }
+
+        public void DrawCircle(int radius)
+        {
+            g.DrawEllipse(Pen, posx, posy, (posx + (radius * 2)), (posy + (radius * 2)));
+        }
     }
     
 }
