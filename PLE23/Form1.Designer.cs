@@ -96,9 +96,9 @@
 
         #endregion
 
-        private TextBox programWindow;
-        private TextBox commandLine;
-        private PictureBox outputWindow;
+        public TextBox programWindow;
+        public TextBox commandLine;
+        public PictureBox outputWindow;
         private Button exitBtn;
     }
 }
