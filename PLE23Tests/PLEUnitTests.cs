@@ -138,5 +138,16 @@ namespace PLE23UnitTests
             Assert.AreEqual(true, forma.Canvas.fillo);
 
         }
+
+        [TestMethod()]
+        public void programWindowTest() 
+        {
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            forma.programWindow.Text = "circle 50\nrect 100,150\ncircle 100\ndrawto 200,200\nfill on\npen blue\ncircle 50";
+            p.ParseCommand("run");
+            Assert.AreEqual("5", forma.labelDrawCountVal.Text);
+
+        }
     }
 }
