@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace PLE23
@@ -19,6 +20,8 @@ namespace PLE23
 
             line = line.Trim().ToLower();  //trim excess and bring everything into same case
             string[] comLine = line.Split('\n');
+            Regex strCom = new Regex("save|load|pen|fill"); //List of commands which take string parameters to check against
+            string infoParams;
             for (int x = 0; x < comLine.Length; x++)
             {
 
@@ -41,8 +44,22 @@ namespace PLE23
                     {
                         int a; // Variable to hold integer output
 
-                        int.TryParse(i, out a); // TryParse the string as int - surround with try catch
-                        Param.Add(a); //Add int to list of parameters
+                        bool paramCheck = int.TryParse(i, out a); // TryParse the string as int - if bool is true params are numerical, if bool is false params are strings
+                        if (paramCheck)
+                        { Param.Add(a); }//Add int to list of parameters 
+                        else if (strCom.IsMatch(com[0])&&paramCheck)
+                            {
+                            infoParams = "Command {0} takes string parameters not numbers";
+                            throw new Exc.InvalidParametersException(com,infoParams); }
+                        else if (!strCom.IsMatch(com[0]) && !paramCheck)
+                        {
+                            infoParams = "Command {0} takes numerical parameters not strings";
+                            throw new Exc.InvalidParametersException(com,infoParams); }
+                        else if ((com[0] == "clear" || com[0] == "reset" || com[0]=="run") && com.Length>1)
+                        {
+                            infoParams = "Command {0} takes no parameters";
+                            throw new Exc.InvalidParametersException(com, infoParams);
+                        }
                     }
 
 
@@ -51,6 +68,7 @@ namespace PLE23
 
                 if (command.Equals("drawto"))
                 {
+                     infoParams = " drawTo takes 2 parameters : x and y";
                     if (Param.Count() == 2)
                     {
 
@@ -62,13 +80,17 @@ namespace PLE23
 
                     }
                     else
-                    {
-                        throw new ApplicationException("Invalid Parameters : drawTo takes 2 parameters : x and y");
+                    {    
+                      
+                        throw new Exc.InvalidParametersException(com,infoParams);
+
+                     
                     }
                 }
 
                else if (command.Equals("moveto"))
                 {
+                    infoParams = "moveTo takes 2 parameters : x and y";
                     if (Param.Count() == 2)
                     {
 
@@ -81,12 +103,14 @@ namespace PLE23
                     }
                     else
                     {
-                        throw new ApplicationException("Invalid Parameters : moveTo takes 2 parameters : x and y");
+                        throw new Exc.InvalidParametersException(com, infoParams);
+                      
                     }
                 }
 
                 else if (command.Equals("rect"))
                 {
+                    infoParams = "rect takes 2 parameters : length and height";
                     if (Param.Count() == 2)
                     {
                         form.Canvas.DrawRect(Param[0], Param[1]);
@@ -94,12 +118,14 @@ namespace PLE23
                     }
                     else
                     {
-                        throw new ApplicationException("Invalid Parameters : Rect takes 2 parameters : length and height");
+                        throw new Exc.InvalidParametersException(com, infoParams);
+                      
                     }
 
                 }
                 else if (command.Equals("circle"))
                 {
+                    infoParams = "circle takes 1 parameter: radius";
                     if (Param.Count() == 1)
                     {
                         form.Canvas.DrawCircle(Param[0]);
@@ -107,11 +133,13 @@ namespace PLE23
                     }
                     else
                     {
-                        throw new ApplicationException("Invalid Parameters : Circle takes 1 parameter: radius");
+                        throw new Exc.InvalidParametersException(com, infoParams);
+                    
                     }
                 }
                 else if (command.Equals("triangle"))
                 {
+                    infoParams = "triangle takes 6 parameters : x1,y1, x2,y2, x3,y3";
                     if (Param.Count() == 6)
                     {
                         form.Canvas.DrawTriangle(Param[0], Param[1], Param[2], Param[3], Param[4], Param[5]);
@@ -121,7 +149,8 @@ namespace PLE23
                     }
                     else
                     {
-                        throw new ApplicationException("Invalid Parameters : Triangle takes 6 parameters : x1,y1, x2,y2, x3,y3");
+                        throw new Exc.InvalidParametersException(com, infoParams);
+                     
                     }
                 }
                 else if (command.Equals("clear"))
@@ -141,7 +170,8 @@ namespace PLE23
                     }
                     else
                     {
-                        throw new ApplicationException("Invalid Parameters : Save takes 1 parameter: filename");
+                        throw new Exc.InvalidParametersException(com, "Save takes 1 parameter: filename");
+                      
                     }
                 }
                 else if (command.Equals("load"))
@@ -152,7 +182,8 @@ namespace PLE23
                     }
                     else
                     {
-                        throw new ApplicationException("Invalid Parameters : Load takes 1 parameter: filename");
+                        throw new Exc.InvalidParametersException(com, "Load takes 1 parameter: filename");
+                      
                     }
                 }
                 else if (command.Equals("fill"))
@@ -165,14 +196,16 @@ namespace PLE23
                         }
                         else
                         {
-                            throw new ApplicationException("Invalid Parameters : fill takes 1 parameter: on/off ");
+                            throw new Exc.InvalidParametersException(com, "fill takes 1 parameter: on/off");
+                         
                         }
 
                     }
 
                     else
                     {
-                        throw new ApplicationException("Invalid Parameters : fill takes 1 parameter: on/off ");
+                        throw new Exc.InvalidParametersException(com, "fill takes 1 parameter: on/off");
+                      
                     }
 
                 }
@@ -188,7 +221,8 @@ namespace PLE23
                     }
                     else
                     {
-                        throw new ApplicationException("Invalid Parameters : pen takes 1 parameter: colour (red/blue/green/pink/purple/black) ");
+                        throw new Exc.InvalidParametersException(com, "pen takes 1 parameter: colour (red/blue/green/pink/purple/black) ");
+                       
                     }
                 }
                 else if (command.Equals("run"))
@@ -198,7 +232,8 @@ namespace PLE23
 
                 else
                 {
-                    throw new ApplicationException("Command not recognised. Valid Commands: rect,triangle,circle,drawTo,moveTo,reset,clear,pen,fill");
+                    throw new Exc.InvalidCommandException(com);
+                    
                 }
 
 

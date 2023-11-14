@@ -47,7 +47,7 @@ namespace PLE23
                     MessageBox.Show("" + ex.Message);
                 }
                 Refresh();
-               
+
             }
 
         }
@@ -55,6 +55,11 @@ namespace PLE23
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
