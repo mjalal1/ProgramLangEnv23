@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PLE23
 {
+    /// <summary>
+    /// This class is used to parse lines of code from the application and executes the relevant command
+    /// </summary>
     public class Parser
     {
         public Form1 form;
@@ -15,47 +18,45 @@ namespace PLE23
             this.form = form;
         }
 
+        /// <summary>This method parses the string given to it into command and parameters, and executes the given command</summary>
+        /// <param name="line">Line of code to be parsed. 'command' + 'parameter(s)'</param>
         public void ParseCommand(String line)
         {
-
-            line = line.Trim().ToLower();  //trim excess and bring everything into same case
-            string[] comLine = line.Split('\n');
             Regex strCom = new Regex("save|load|pen|fill"); //List of commands which take string parameters to check against
-            string infoParams;
-            for (int x = 0; x < comLine.Length; x++)
+            string infoParams; //Information on command parameters
+            line = line.Trim().ToLower();  //Trim excess and bring everything into same case
+            string[] comLine = line.Split('\n');    //Split text into lines of code
+           
+            for (int x = 0; x < comLine.Length; x++) // Iterate on each line of code
             {
 
 
 
-                string[] com = comLine[x].Split(' ');
-                string command = com[0]; //Assign command to a variable
-                List<int> Param = new List<int>(); // Create list of integers to store parameters after conversion
-                                                   //  String[] Params = new string[];
+                string[] com = comLine[x].Split(' ');       //Split line into command and parameters
+                string command = com[0];                    //Assign command to a variable
+                List<int> Param = new List<int>();          // Create list of integers to store parameters after conversion
+                                                          
 
-                if (com.Length > 1)
+                if (com.Length > 1)                  // If there are parameters, continue sorting through
                 {
-                    string[] Params = com[1].Split(',');
+                    string[] Params = com[1].Split(',');    //Split whole parameter string into array of parameter strings
 
-                    // Assign chunk of whole parameter to a string to further split
-                    //Split whole parameter string into array of parameter strings
-
-
-                    foreach (string i in Params) // Iterate through each parameter in string form and convert to int
+                    foreach (string i in Params)                  // Iterates through each parameter in string form and convert to int
                     {
-                        int a; // Variable to hold integer output
+                        int a;                                            // Variable to hold integer output
 
-                        bool paramCheck = int.TryParse(i, out a); // TryParse the string as int - if bool is true params are numerical, if bool is false params are strings
+                        bool paramCheck = int.TryParse(i, out a);         // TryParse the string as int - if bool is true params are numerical, if bool is false params are strings
                         if (paramCheck)
-                        { Param.Add(a); }//Add int to list of parameters 
-                        else if (strCom.IsMatch(com[0])&&paramCheck)
+                        { Param.Add(a); }                                //Add int to list of parameters 
+                        else if (strCom.IsMatch(com[0])&&paramCheck)              //If command takes string parameters and parameter is numerical...
                             {
                             infoParams = "Command {0} takes string parameters not numbers";
                             throw new Exc.InvalidParametersException(com,infoParams); }
-                        else if (!strCom.IsMatch(com[0]) && !paramCheck)
+                        else if (!strCom.IsMatch(com[0]) && !paramCheck)            //If command takes numerical params and parameter is string... 
                         {
                             infoParams = "Command {0} takes numerical parameters not strings";
                             throw new Exc.InvalidParametersException(com,infoParams); }
-                        else if ((com[0] == "clear" || com[0] == "reset" || com[0]=="run") && com.Length>1)
+                        else if ((com[0] == "clear" || com[0] == "reset" || com[0]=="run") && com.Length>1)     //If command takes no parameters yet there are some...
                         {
                             infoParams = "Command {0} takes no parameters";
                             throw new Exc.InvalidParametersException(com, infoParams);
@@ -68,7 +69,7 @@ namespace PLE23
 
                 if (command.Equals("drawto"))
                 {
-                     infoParams = " drawTo takes 2 parameters : x and y";
+                     infoParams = " drawTo takes 2 parameters : x and y";       // Setting Parameter information
                     if (Param.Count() == 2)
                     {
 
@@ -216,7 +217,7 @@ namespace PLE23
                     {
 
                         form.Canvas.pen(com[1]);
-                        Console.WriteLine(com[1]);
+                       
 
                     }
                     else

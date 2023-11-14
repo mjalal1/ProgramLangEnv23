@@ -6,12 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Unit Testing for the main program
+/// </summary>
 namespace PLE23UnitTests
 {
+    /// <summary>
+    /// Test class containing the unit test methods
+    /// </summary>
     [TestClass()]
     public class PLEUnitTests
     {
-  
+
+        /// <summary>
+        /// Tests 'moveTo' with valid input.
+        /// </summary>
         [TestMethod()]
         public void MoveToTest()
         {
@@ -23,6 +32,9 @@ namespace PLE23UnitTests
 
         }
 
+        /// <summary>
+        /// Tests 'reset' with valid input
+        /// </summary>
         [TestMethod()]
         public void resetTest()
         {
@@ -35,6 +47,10 @@ namespace PLE23UnitTests
             Assert.AreEqual(0, forma.Canvas.posy, 0.01);
         }
 
+
+        /// <summary>
+        /// Tests 'drawTo' with valid input
+        /// </summary>
         [TestMethod()]
         public void DrawToTest()
         {
@@ -45,6 +61,9 @@ namespace PLE23UnitTests
             Assert.AreEqual(150, forma.Canvas.posy, 0.01);
         }
 
+        /// <summary>
+        /// Tests 'fill' with valid input
+        /// </summary>
         [TestMethod()]
         public void fillTest()
         {
@@ -55,6 +74,9 @@ namespace PLE23UnitTests
 
         }
 
+        /// <summary>
+        /// Tests 'clear' with valid input
+        /// </summary>
         [TestMethod()]
         public void clearTest()
         {
@@ -67,6 +89,10 @@ namespace PLE23UnitTests
             
         }
 
+
+        /// <summary>
+        /// Tests 'rect' with valid input
+        /// </summary>
         [TestMethod()]
         public void DrawRectTest()
         {
@@ -76,6 +102,10 @@ namespace PLE23UnitTests
             Assert.AreEqual("1", forma.labelDrawCountVal.Text);
         }
 
+
+        /// <summary>
+        /// Tests 'circle' with valid input
+        /// </summary>
         [TestMethod()]
         public void DrawCircleTest()
         {
@@ -85,6 +115,9 @@ namespace PLE23UnitTests
             Assert.AreEqual("1", forma.labelDrawCountVal.Text);
         }
 
+        /// <summary>
+        /// Tests 'triangle' with valid input
+        /// </summary>
         [TestMethod()]
         public void DrawTriangleTest()
         {
@@ -94,6 +127,9 @@ namespace PLE23UnitTests
             Assert.AreEqual("1", forma.labelDrawCountVal.Text); 
         }
 
+        /// <summary>
+        /// Tests 'pen' with valid input
+        /// </summary>
         [TestMethod()]
         public void penTest()
         {
@@ -104,6 +140,9 @@ namespace PLE23UnitTests
             
         }
 
+        /// <summary>
+        /// Tests 'save' with valid input
+        /// </summary>
         [TestMethod()]
         public void saveTest()
         {
@@ -115,7 +154,9 @@ namespace PLE23UnitTests
 
         }
 
-        
+        /// <summary>
+        /// Tests 'load' with valid input
+        /// </summary>
         [TestMethod()]
         public void loadTest()
         {
@@ -128,6 +169,9 @@ namespace PLE23UnitTests
 
         }
 
+        /// <summary>
+        /// Tests parsing the command line with valid input
+        /// </summary>
         [TestMethod()]
         public void commandLineTest()
         {
@@ -139,6 +183,9 @@ namespace PLE23UnitTests
 
         }
 
+        /// <summary>
+        /// Tests parsing the programWindow and 'run' with valid input
+        /// </summary>
         [TestMethod()]
         public void programWindowTest() 
         {

@@ -34,7 +34,6 @@
             exitBtn = new Button();
             labelDrawCountVal = new Label();
             labelDrawingCount = new Label();
-            btnSyntax = new Button();
             ((System.ComponentModel.ISupportInitialize)outputWindow).BeginInit();
             SuspendLayout();
             // 
@@ -105,24 +104,12 @@
             labelDrawingCount.TabIndex = 5;
             labelDrawingCount.Text = "# of drawings on Canvas:";
             // 
-            // btnSyntax
-            // 
-            btnSyntax.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSyntax.Location = new Point(36, 288);
-            btnSyntax.Margin = new Padding(3, 2, 3, 2);
-            btnSyntax.Name = "btnSyntax";
-            btnSyntax.Size = new Size(122, 26);
-            btnSyntax.TabIndex = 6;
-            btnSyntax.Text = "Syntax Check";
-            btnSyntax.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnSyntax);
             Controls.Add(labelDrawingCount);
             Controls.Add(labelDrawCountVal);
             Controls.Add(exitBtn);
@@ -149,6 +136,5 @@
         private Button exitBtn;
         public Label labelDrawCountVal;
         private Label labelDrawingCount;
-        private Button btnSyntax;
     }
 }

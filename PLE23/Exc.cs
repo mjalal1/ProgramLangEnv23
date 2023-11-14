@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace PLE23
 {
+    /// <summary>
+    /// Class for custom exceptions
+    /// </summary>
+    /// <seealso cref="System.Exception" />
     public class Exc : Exception
     {
-       public class InvalidCommandException : Exception
+        /// <summary>
+        /// Exception thrown for invalid commands
+        /// </summary>
+        /// <seealso cref="System.Exception" />
+        public class InvalidCommandException : Exception
         {
             public InvalidCommandException() { }
 
@@ -19,7 +27,11 @@ namespace PLE23
             }
         }
 
-       public class InvalidParametersException : Exception
+        /// <summary>
+        /// Exception thrown for invalid parameters
+        /// </summary>
+        /// <seealso cref="System.Exception" />
+        public class InvalidParametersException : Exception
         {
             public InvalidParametersException() { }
 
