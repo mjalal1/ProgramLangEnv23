@@ -47,7 +47,7 @@ namespace PLE23
                     MessageBox.Show("" + ex.Message);
                 }
                 Refresh();
-                labelDrawCountVal.Text = Canvas.drawCount.ToString();
+               
             }
 
         }

@@ -56,6 +56,7 @@ namespace PLE23
 
 
                         form.Canvas.DrawTo(Param[0], Param[1]);
+                        form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
 
 
 
@@ -89,6 +90,7 @@ namespace PLE23
                     if (Param.Count() == 2)
                     {
                         form.Canvas.DrawRect(Param[0], Param[1]);
+                        form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
                     }
                     else
                     {
@@ -101,6 +103,7 @@ namespace PLE23
                     if (Param.Count() == 1)
                     {
                         form.Canvas.DrawCircle(Param[0]);
+                        form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
                     }
                     else
                     {
@@ -112,6 +115,7 @@ namespace PLE23
                     if (Param.Count() == 6)
                     {
                         form.Canvas.DrawTriangle(Param[0], Param[1], Param[2], Param[3], Param[4], Param[5]);
+                        form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
 
 
                     }
@@ -123,6 +127,7 @@ namespace PLE23
                 else if (command.Equals("clear"))
                 {
                     form.Canvas.clear();
+                    form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString(); // get/set change to priv
                 }
                 else if (command.Equals("reset"))
                 {
