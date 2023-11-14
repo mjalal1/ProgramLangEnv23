@@ -70,7 +70,10 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void DrawRectTest()
         {
-            Assert.Fail();
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            p.ParseCommand("rect 100,150");
+            Assert.AreEqual("1", forma.labelDrawCountVal.Text);
         }
 
         [TestMethod()]
@@ -82,7 +85,7 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void DrawTriangleTest()
         {
-            Assert.Fail();
+            Assert.Fail(); // parse draw 
         }
 
         [TestMethod()]
