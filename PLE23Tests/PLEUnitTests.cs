@@ -197,6 +197,9 @@ namespace PLE23UnitTests
 
         }
 
+        /// <summary>
+        /// Tests the invalidParameter exception using 'circle'
+        /// </summary>
         [TestMethod()]
         public void InvalidParam_DrawCircleTest()
         {
@@ -206,6 +209,17 @@ namespace PLE23UnitTests
             Assert.ThrowsException<Exc.InvalidParametersException>(() => p.ParseCommand("circle x"));
         }
 
+        /// <summary>
+        /// Tests whether an exception is thrown when an invalid command is parsed
+        /// </summary>
+        [TestMethod()]
+        public void InvalidCommandTest()
+        {
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+
+            Assert.ThrowsException<Exc.InvalidCommandException>(() => p.ParseCommand("inval1d"));
+        }
 
     }
 }
