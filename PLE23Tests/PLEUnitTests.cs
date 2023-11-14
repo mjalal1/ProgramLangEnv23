@@ -79,7 +79,10 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void DrawCircleTest()
         {
-            Assert.Fail();
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            p.ParseCommand("circle 100");
+            Assert.AreEqual("1", forma.labelDrawCountVal.Text);
         }
 
         [TestMethod()]
