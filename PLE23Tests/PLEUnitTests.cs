@@ -196,5 +196,16 @@ namespace PLE23UnitTests
             Assert.AreEqual("5", forma.labelDrawCountVal.Text);
 
         }
+
+        [TestMethod()]
+        public void InvalidParam_DrawCircleTest()
+        {
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+           
+            Assert.ThrowsException<Exc.InvalidParametersException>(() => p.ParseCommand("circle x"));
+        }
+
+
     }
 }
