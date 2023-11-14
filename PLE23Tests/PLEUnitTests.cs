@@ -58,7 +58,13 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void clearTest()
         {
-            Assert.Fail();
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            p.ParseCommand("rect 100,150\ncircle 50");
+            Assert.AreEqual("2", forma.labelDrawCountVal.Text);
+            p.ParseCommand("clear");
+            Assert.AreEqual("0", forma.labelDrawCountVal.Text);
+            
         }
 
         [TestMethod()]
