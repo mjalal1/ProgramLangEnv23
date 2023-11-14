@@ -96,6 +96,17 @@ namespace PLE23UnitTests
         }
 
         [TestMethod()]
+        public void saveTest()
+        {
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            p.ParseCommand("circle 45\nsave test");
+            forma.LoadFile("test");
+          
+
+        }
+
+        
         public void commandLineTest()
         {
             Form1 forma = new Form1();
