@@ -88,7 +88,10 @@ namespace PLE23UnitTests
         [TestMethod()]
         public void DrawTriangleTest()
         {
-            Assert.Fail(); // parse draw 
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+            p.ParseCommand("triangle 100,100,200,200,300,100");
+            Assert.AreEqual("1", forma.labelDrawCountVal.Text); 
         }
 
         [TestMethod()]
