@@ -107,6 +107,19 @@ namespace PLE23UnitTests
         }
 
         
+        [TestMethod()]
+        public void loadTest()
+        {
+            Form1 forma = new Form1();
+            Parser p = new Parser(forma);
+
+            p.ParseCommand("circle 45\nsave loadtest");
+            forma.LoadFile("loadtest"); // u need to commit save test above first then this
+
+
+        }
+
+        [TestMethod()]
         public void commandLineTest()
         {
             Form1 forma = new Form1();
