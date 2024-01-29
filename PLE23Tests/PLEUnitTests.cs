@@ -82,7 +82,7 @@ namespace PLE23UnitTests
         {
             Form1 forma = new Form1();
             Parser p = new Parser(forma);
-            p.ParseCommand("rect 100,150\ncircle 50");
+            p.ParseCommand("rect 100,150\r\ncircle 50");
             Assert.AreEqual("2", forma.labelDrawCountVal.Text);
             p.ParseCommand("clear");
             Assert.AreEqual("0", forma.labelDrawCountVal.Text);
@@ -148,7 +148,7 @@ namespace PLE23UnitTests
         {
             Form1 forma = new Form1();
             Parser p = new Parser(forma);
-            p.ParseCommand("circle 45\nsave test");
+            p.ParseCommand("circle 45\r\nsave test");
             forma.LoadFile("test");
           
 
@@ -163,8 +163,8 @@ namespace PLE23UnitTests
             Form1 forma = new Form1();
             Parser p = new Parser(forma);
 
-            p.ParseCommand("circle 45\nsave loadtest");
-            forma.LoadFile("loadtest"); // u need to commit save test above first then this
+            p.ParseCommand("circle 45\r\nsave loadtest");
+            forma.LoadFile("loadtest"); 
 
 
         }
@@ -191,7 +191,7 @@ namespace PLE23UnitTests
         {
             Form1 forma = new Form1();
             Parser p = new Parser(forma);
-            forma.programWindow.Text = "circle 50\nrect 100,150\ncircle 100\ndrawto 200,200\nfill on\npen blue\ncircle 50";
+            forma.programWindow.Text = "circle 50\r\nrect 100,150\r\ncircle 100\r\ndrawto 200,200\r\nfill on\r\npen blue\r\ncircle 50";
             p.ParseCommand("run");
             Assert.AreEqual("5", forma.labelDrawCountVal.Text);
 
