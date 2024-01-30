@@ -17,6 +17,11 @@ namespace PLE23
             canvas.drawCount = 0;
         }
 
+        public override void execute()
+        {
+             draw();
+        }
+
         public override string infoParams()
         {
             return "clear takes no parameters";

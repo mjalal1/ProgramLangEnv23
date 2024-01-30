@@ -33,5 +33,10 @@ namespace PLE23
             canvas.posx = x;
             canvas.posy = y;
         }
+
+        public override void execute()
+        {
+            draw();
+        }
     }
 }

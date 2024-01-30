@@ -24,5 +24,9 @@ namespace PLE23
         {
             return 0;
         }
+        public override void execute()
+        {
+            draw();
+        }
     }
 }

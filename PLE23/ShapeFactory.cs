@@ -52,6 +52,14 @@ namespace PLE23
             {
                 return new PenCmd();
             }
+            else if (shapeType.Equals("save"))
+            {
+                return new Save();
+            }
+            else if (shapeType.Equals("load"))
+            {
+                return new Load();
+            }
 
 
             else

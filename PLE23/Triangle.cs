@@ -23,6 +23,11 @@ namespace PLE23
             return "triangle takes 6 parameters : x1,y1, x2,y2, x3,y3";
         }
 
+        public override void execute()
+        {
+            draw();
+        }
+
         public override void set(CanvasO canvas, params int[] list)
         {
             base.set(canvas, list);

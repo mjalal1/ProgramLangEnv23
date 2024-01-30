@@ -17,6 +17,11 @@ namespace PLE23
 
 
         }
+
+        public override void execute()
+        {
+            draw();
+        }
         public override void draw()
         {
             switch (colour)

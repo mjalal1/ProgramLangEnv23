@@ -13,9 +13,8 @@ namespace PLE23
         
              // set path to load from/ save to  // set option to change
        
-        void execute()
-        { 
+      
             // load file / save file / fill on / pen colour
-        }
+     
     }
 }

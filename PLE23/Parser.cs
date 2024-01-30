@@ -89,7 +89,7 @@ namespace PLE23
                     if (Param.Count() == shapeCom.parameters())
                     {
                         shapeCom.set(form.Canvas, Param.ToArray());
-                        shapeCom.draw();
+                        shapeCom.execute();
                         form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
                     }
                     else { throw new Exc.InvalidParametersException(com, shapeCom.infoParams()); }
@@ -99,8 +99,8 @@ namespace PLE23
                     if ((com.Length)-1 == shapeCom.parameters())
                     {
                         shapeCom.set(form, com[1]);
-                        shapeCom.draw();
-                        form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
+                        shapeCom.execute();
+                       // form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
                     }
                     else { throw new Exc.InvalidParametersException(com, shapeCom.infoParams()); }
                 }

@@ -11,7 +11,11 @@ namespace PLE23
        public abstract int parameters();
        public abstract string infoParams();
         public abstract string cmdType();
-     
-        
+        public abstract void execute();
+
+       public Command() 
+        {
+            
+        }
     }
 }

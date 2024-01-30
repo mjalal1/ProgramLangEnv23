@@ -17,8 +17,12 @@ namespace PLE23
 
         }
 
+        public override void execute()
+        {
+            draw();
+        }
 
-            
+
         public override void set(CanvasO canvas, params int[] list)
         {  base.set(canvas, list);
             this.radius = list[0];
