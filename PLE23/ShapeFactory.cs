@@ -60,6 +60,10 @@ namespace PLE23
             {
                 return new Load();
             }
+            else if (shapeType.Equals("run"))
+            {
+                return new Run();
+            }
 
 
             else

@@ -30,7 +30,7 @@ namespace PLE23
 
             if (comLine.Length > 1)
             {
-                for (int x = 0; x < comLine.Length; x++) // Removing \r from end of string ???
+                for (int x = 0; x < comLine.Length-1; x++) // Removing \r from end of string ???
                 { comLine[x] = comLine[x].Remove(comLine[x].Length - 1, 1); }
             }
 
@@ -101,6 +101,16 @@ namespace PLE23
                         shapeCom.set(form, com[1]);
                         shapeCom.execute();
                        // form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
+                    }
+                    else { throw new Exc.InvalidParametersException(com, shapeCom.infoParams()); }
+                }
+                else if (shapeCom.cmdType() == "run")
+                {
+                    if ((com.Length) - 1 == shapeCom.parameters())
+                    {
+                        shapeCom.set(form);
+                        shapeCom.execute();
+                        form.labelDrawCountVal.Text = form.Canvas.drawCount.ToString();
                     }
                     else { throw new Exc.InvalidParametersException(com, shapeCom.infoParams()); }
                 }
@@ -202,7 +212,7 @@ namespace PLE23
                 }
                 else if (command.Equals("reset"))
                 {
-                    form.Canvas.reset();
+                  //  form.Canvas.reset();
                 }
                 else if (command.Equals("save"))
                 {
@@ -251,7 +261,7 @@ namespace PLE23
                 }
                 else if (command.Equals("run"))
                 {
-                    ParseCommand(form.programWindow.Text);
+                   // ParseCommand(form.programWindow.Text);
                 }
 
                 else

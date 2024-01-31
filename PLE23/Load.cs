@@ -17,7 +17,7 @@ namespace PLE23
 
         public override string infoParams()
         {
-            return "save takes 1 parameter: filepath";
+            return "load takes 1 parameter: filepath";
         }
 
         public override int parameters()
