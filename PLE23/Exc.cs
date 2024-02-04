@@ -41,6 +41,12 @@ namespace PLE23
 
             }
 
+            public InvalidParametersException(string command, string param)
+             : base(String.Format("Invalid parameters for command '{0}'\n"+param, command))
+            {
+
+            }
+
             public InvalidParametersException(string[] com,string param)
                 : base(String.Format("Invalid parameters for command '{0}'\n"+param, com[0]))
             {

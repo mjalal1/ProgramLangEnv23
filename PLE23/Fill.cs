@@ -9,10 +9,12 @@ namespace PLE23
     internal class Fill : Shape, StringCmd
     {
         string state;
+        Form1 form;
          public void set(Form1 forma, string state)
         {
             base.set(forma.Canvas);
             this.state = state;
+            this.form = forma;
 
 
         }
@@ -29,6 +31,7 @@ namespace PLE23
             }
             else if (state == "off")
             { canvas.fillo = false; }
+            else throw new Exc.InvalidParametersException(this.ToString(), infoParams());
         }
 
         public override string cmdType()
@@ -44,6 +47,11 @@ namespace PLE23
         public override int parameters()
         {
             return 1 ;
+        }
+
+        public override string ToString()
+        {
+            return this.GetType().Name;
         }
     }
 }
