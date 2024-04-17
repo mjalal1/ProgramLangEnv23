@@ -64,10 +64,19 @@ namespace PLE23
             {
                 return new Run();
             }
+            else if (shapeType.Equals("var"))
+            {
+                return new Var();
+            }
+            else if (shapeType.Equals("="))
+            {
+                return new Var();
+            }
 
 
             else
             {
+                throw new Exc.InvalidCommandException(shapeType);
                 throw new ApplicationException("[FACTORY]: Command not recognised\nValid Commands: rect,triangle,circle,drawTo,moveTo,reset,clear,pen,fill");
             }
         }

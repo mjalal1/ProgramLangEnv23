@@ -25,6 +25,12 @@ namespace PLE23
             {
 
             }
+
+            public InvalidCommandException(string cmd) //Fac
+                : base(String.Format("Invalid command: {0}\nValid commands include: rect,triangle,circle,drawTo,moveTo,reset,clear,pen,fill,save,load,run", cmd))
+            {
+
+            }
         }
 
         /// <summary>

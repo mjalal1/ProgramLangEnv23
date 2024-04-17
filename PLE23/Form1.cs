@@ -9,6 +9,8 @@ namespace PLE23
         const int bmpy = 480;
         Bitmap OutBmp = new Bitmap(bmpx, bmpy);
         public CanvasO Canvas;
+        public List<string> varName = new List<string>();
+        public List<int> varValue = new List<int>();
         public Form1()
         {
             InitializeComponent();
@@ -79,6 +81,7 @@ namespace PLE23
         private void exitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            
 
         }
 

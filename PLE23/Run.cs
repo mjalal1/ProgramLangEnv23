@@ -17,7 +17,7 @@ namespace PLE23
 
         public void set(Form1 form)
         { this.form = form;
-            this.p = new Parser(form); //new parser created. this.form?
+            this.p = new Parser(this.form); //new parser created. this.form?
         }
         public override void execute()
         {

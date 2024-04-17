@@ -20,7 +20,7 @@ namespace PLE23
         public override string cmdType()
         { return "draw";}
 
-      
+       
 
         public abstract void draw();
 

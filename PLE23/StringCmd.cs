@@ -8,7 +8,7 @@ namespace PLE23
 {
      interface StringCmd // maybe make it interface inherticance
     {
-
+       
         void set(Form1 forma, string value);
         
              // set path to load from/ save to  // set option to change
